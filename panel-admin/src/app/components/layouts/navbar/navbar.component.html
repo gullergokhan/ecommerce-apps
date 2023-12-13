@@ -1,0 +1,49 @@
+<nav class="bg-white shadow-lg border-b border-gray-200 fixed z-30 w-full">
+    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+      <div class="flex items-center justify-between">
+        <!-- Sol Bölüm (Anasayfa, Kategori, Ürün, Sepet) -->
+        <div class="flex items-center justify-start lg:justify-center">
+          <a href="/" class="text-gray-700 hover:text-primary-900 mr-4 lg:mr-8">Anasayfa</a>
+          <a href="/category" class="text-gray-700 hover:text-primary-900 mr-4 lg:mr-8">Kategori</a>
+          <a href="/product" class="text-gray-700 hover:text-primary-900 mr-4 lg:mr-8">Ürün</a>
+        
+        </div>
+        
+<!--        
+        <div class="flex justify-center flex-1">
+          <form action="#" class="lg:block">
+            <div class="relative">
+              <div class="absolute inset-y-0 mt-2 ml-3">
+                <i class="fa-solid fa-magnifying-glass text-gray-700"></i>
+              </div>
+              <input type="text" class="bg-gray-50 border border-gray-300 text-gray-700 sm:text-sm rounded-xl focus:ring-second-900 focus:border-second-900 block w-full xl:w-[36rem] pl-10 p-2" placeholder="Search...">
+            </div>
+          </form>
+        </div> -->
+    
+        
+        <div class="flex items-center justify-end">
+          <div>
+            
+            <button (click)="toggleProfileMenu()" class="text-gray-700" id="user-menu-button"> 
+              <img src="assets/img/logo.jpeg" alt="User" class="w-9 h-9 rounded-full">
+            </button>
+    
+           
+            <div [ngClass]="{'hidden': !isProfileMenuOpen}" class="absolute right-0 mt-8 w-56 bg-white border border-primary-600 rounded-lg hidden shadow-xl" id="user-menu">
+              <div class="px-4 py-2">
+                <p class="text-gray-600">Kullanıcı Menüsü</p>
+              </div>
+              <ul>
+               
+                <li class="hover:bg-gray-200"><a href="/" class="block px-4 py-2 text-gray-700">Dashboard</a></li>
+               
+                <li class="hover:bg-gray-200"><a (click)="logout()" class="block px-4 py-2 text-gray-700 cursor-pointer">Sign-out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  

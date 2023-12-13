@@ -1,0 +1,57 @@
+<app-blank title="Ürünler" sectionTitle="Ürün Listesi"></app-blank>
+<app-loading-spinner *ngIf="isLoading" />
+
+<section *ngIf="!isLoading && products.length > 0" class="container mt-4">
+    <div class=" text-gray p-4">
+      <div class="d-flex justify-content-between border-bottom border-secondary mt-2">
+        <form class="pr-3 mb-4 mb-sm-0">
+          <label for="products-search" class="sr-only">Search</label>
+          <div class="mt-1 w-100 relative">
+            <input class="form-control" id="products-search" [(ngModel)]="searchText" name="searchText" type="text" placeholder="Search For Products ....">
+          </div>
+        </form>
+  
+        <div class="d-flex justify-content-end">
+          <div class="d-flex">
+            <button (click)="reset()" class="btn btn-secondary">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            <button (click)="allproduct()" class="btn btn-secondary">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mt-4">
+        <div class="table-responsive">
+          <table class="table table-fixed table-striped table-bordered table-transparent"> 
+            <thead class="bg-transparent text-gray">
+              <tr>
+                <th class="p-2 text-left text-uppercase">ID</th>
+                <th class="p-2 text-left text-uppercase">Images</th>
+                <th class="p-2 text-left text-uppercase">Title</th>
+                <th class="p-2 text-left text-uppercase">Sku</th>
+                <th class="p-2 text-left text-uppercase">Price</th>
+                <th class="p-2 text-left text-uppercase">Stock</th>
+                <th class="p-2 text-right text-uppercase"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products">
+                <td class="p-2">{{ product.id }}</td>
+                <td class="p-2">
+                  <img src="{{ URL }}/storage/{{ product.image }}" class="img-thumbnail" width="50" height="50">
+                </td>
+                <td class="p-2">{{ product.title }}</td>
+                <td class="p-2">{{ product.sku }}</td>
+                <td class="p-2">{{ product.price_dsc }}</td>
+                <td class="p-2">{{ product.stock }}</td>
+                <td class="p-2 text-right"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</section>

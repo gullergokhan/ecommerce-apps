@@ -1,0 +1,48 @@
+<div [@shake] class="bg-gray-100 mx-auto md:h-screen flex flex-col justify-center items-center px-6 pt-8">
+    <a href="index.html" class="justify-center items-center mb-8">
+      <img src="assets/img/logo.jpeg" class="h-24" />
+    </a>
+    <div [@shake] class="bg-white rounded-xl w-full sm:max-w-screen-sm shadow-md p-6">
+      <h2 class="text-3xl uppercase font-medium mb-1">Register</h2>
+      <p class="text-gray-600 mb-6 text-sm">Lorem ipsum dolor sit amet.</p>
+  
+      <form method="" action="">
+        <div class="space-y-5">
+          <div>
+            <label class="text-gray-600 mb-3 block"> Full Name <span class="text-primary">*</span></label>
+            <input type="text" [(ngModel)]="name" name="name" class="bg-gray-200 border border-gray-400
+            text-gray-800 sm:text-sm rounded-lg focus:ring-primary-700 focus:border-primary-700 block w-full p-2" placeholder="Full Name">
+          </div>
+          <div>
+            <label class="text-gray-600 mb-3 block"> Email Address <span class="text-primary">*</span></label>
+            <input type="email" [(ngModel)]="email" name="email" class="bg-gray-200 border border-gray-400
+            text-gray-800 sm:text-sm rounded-lg focus:ring-primary-700 focus:border-primary-700 block w-full p-2"placeholder="example@example.com">
+          </div>
+          <div>
+            <label class="text-gray-600 mb-3 block"> Password <span class="text-primary">*</span></label>
+            <input type="password" [(ngModel)]="password" name="password" class="bg-gray-200 border border-gray-400
+            text-gray-800 sm:text-sm rounded-lg focus:ring-primary-700 focus:border-primary-700 block w-full p-2" placeholder="Enter Password">
+          </div>
+          <div>
+            <label class="text-gray-600 mb-3 block"> Confirm Password <span class="text-primary">*</span></label>
+            <input type="password" [(ngModel)]="password_confirmation" name="password_confirmation" class="bg-gray-200 border border-gray-400
+            text-gray-800 sm:text-sm rounded-lg focus:ring-primary-700 focus:border-primary-700 block w-full p-2" placeholder="Confirm Password">
+          </div>
+        </div>
+  
+        <div class="flex items-center justify-between mt-6">
+          <div class="flex items-center">
+            <input type="checkbox" class="bg-gray-200 border border-gray-400
+            text-gray-800 sm:text-sm rounded-lg focus:ring-primary-700 focus:border-primary-700 block w-full p-2">
+            <label class="text-gray-800 ml-3">
+              <a href="#" class="text-primary"> Terms & Conditions </a>
+            </label>
+          </div>
+        </div>
+        <div class="mt-4">
+          <button type="submit" (click)="register()" class="block w-full py-2 text-center text-gray bg-primary border border-primary rounded-xl uppercase hover:bg-transparent hover:text-primary transition">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
