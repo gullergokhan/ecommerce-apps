@@ -22,13 +22,18 @@ export class SliderComponent implements OnInit {
     this.ecommerceService.getProduct().subscribe((resp: any) => {
       console.log('Response:', resp); 
       if (resp && resp.products && resp.products.data) {
-        this.slides = resp.products.data.slice(0, 10); 
+        this.slides = resp.products.data.slice(0, 20); 
         console.log(resp.products.data)
         this.isLoading = false; 
-      } else {
+        setInterval(() => {
+          this.showNextSlide();
+        }, 5000);} else {
         console.error('Ürünler alınırken bir hata oluştu: Ürünler bulunamadı.');
       }
     });
   }
- 
+  showNextSlide() {
+    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    // Burada slide'ı güncelleyerek göstermek için gerekli işlemleri yapabilirsiniz.
+  }
 }

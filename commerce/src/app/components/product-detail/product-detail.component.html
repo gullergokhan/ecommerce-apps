@@ -1,0 +1,74 @@
+<div class="container pt-4 pb-6">
+    <div class="row">
+        <!-- Product Image -->
+        <div class="col-lg-6">
+            <div>
+                <img id="main-img" [src]="URL  + imageEcommerce" class="w-100" />
+            </div>
+            <div class="row mt-4">
+                <div *ngFor="let image of images" class="col-2">
+                    <img [src]="URL  + image.images" class="single-img cursor-pointer border w-100" (click)="changeMainImage(image.images)" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- Product Detail -->
+        <div class="col-lg-6">
+            <h2 class="text-uppercase md:text-3xl text-2xl font-medium mb-2">{{ title }}</h2>
+            <div class="space-y-3">
+                <p class="space-x-4 mt-2">
+                    <span class="text-xl">Id: </span>
+                    <span class="text-xl text-green-600 font-semibold">#{{ id }}</span>
+                </p>
+                <p class="space-x-4 mt-2">
+                    <span class="text-xl">Category: </span>
+                    <span class="text-xl text-green-600 font-semibold">{{ categoryname }}</span>
+                </p>
+                <p class="space-x-4 mt-2">
+                    <span class="text-xl">Available: </span>
+                    <span class="text-xl text-green-600 font-semibold">{{ stock }}</span>
+                </p>
+                <p class="space-x-4 mt-2">
+                    <span class="text-xl">Price: </span>
+                    <span class="text-xl text-green-600 font-semibold"> {{price_dsc}}. TL</span>
+                    
+                    
+                </p>
+                <p class="space-x-4 mt-2">
+                    <span class="text-xl">Summary: </span>
+                    <span class="text-xl text-green-600 font-semibold"> {{summary}}</span>
+                    
+                    
+                </p>
+            </div>
+    
+            <!-- Ürün Açıklaması -->
+            <div class="mt-6">
+                <h3 class="text-2xl font-medium uppercase mb-3 text-gray-800">Product Details</h3>
+                <div class="pt-3">
+                    <p class="text-gray-500 mb-2">{{ description }}</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-gray-700 mb-2 text-lg">Quantity</h3>
+                <div class="input-group">
+                    <span class="input-group-text btn-primary cursor-pointer" (click)="decrement()"> - </span>
+                    <input type="text" class="form-control text-center" [(ngModel)]="quantity">
+                    <span class="input-group-text btn-primary cursor-pointer" (click)="increment()"> + </span>
+                </div>
+            </div>
+            <div class="d-flex gap-3 border-bottom border-gray-200 pb-5 mt-6">
+                <button (click)="addCart()" class="btn btn-primary flex items-center font-medium rounded-lg text-white uppercase">
+                    <i class="fa-solid fa-cart-shopping me-2"></i>
+                    Add to Cart
+                </button>
+            
+                <a href="#" class="btn btn-secondary flex items-center font-medium rounded-lg text-white uppercase">
+                    <i class="fa-solid fa-heart me-2"></i>
+                    Wishlist
+                </a>
+            </div>
+           
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container-lg">
+    <div class="row">
+        <div class="col-xl-9 col-lg-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col" class="text-center">Quantity</th>
+                        <th scope="col" class="text-center">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cart of listCarts">
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img [src]="URL +cart.product.images" class="w-25 me-3" alt="Product Image">
+                                
+                                <div>
+                                    <h5 class="mb-0">{{ cart.product.title }}</h5>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center align-middle">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="decrement(cart)">-</button>
+                                <span class="btn btn-sm btn-outline-secondary">{{ cart.quantity }}</span>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="increment(cart)">+</button>
+                            </div>
+                        </td>
+                        <td class="text-center align-middle">
+                            <p class="text-primary">${{ cart.total }}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xl-3 col-lg-4 border border-gray-300 bg-white rounded-xl mt-4 mt-lg-0 p-4">
+            <h3 class="text-2xl font-medium mb-4 mt-2 text-center">Order summary</h3>
+            <table class="table">
+                <tbody>
+                
+                 
+                    <tr>
+                        <td>Total</td>
+                        <td>${{ TotalPrice }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a routerLink="#" class="btn btn-primary btn-lg btn-block">Ödemeyi Tamamla</a>
+        </div>
+    </div>
+</div>

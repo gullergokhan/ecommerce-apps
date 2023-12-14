@@ -1,43 +1,40 @@
 <div class="card mt-4">
-    <div id="topTenCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false">
-      <div class="carousel-inner" style="text-align: center;">
-        <div class="carousel-item active">
-          <div class="d-flex justify-content-center">
-            <ng-container *ngFor="let slide of slides.slice(0, 5); let i = index">
-              <a [routerLink]="'/products/' + slide.id">
-                <div class="carousel-item-single" *ngIf="i < 5">
-                    <div class="card mb-3">
-                        <img [src]="'http://localhost:8000/storage/' + slide.image" class="card-img-top" alt="Slide Image">
-                        <div class="card-body">
-                          
-                          <p class="card-text mt-2">Title: {{ slide.title }}</p>
-                          <span class="top-film-order">{{ i + 1 }}</span>
-                        </div>
-                      </div>
-                </div>
-              </a>
-            </ng-container>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="d-flex justify-content-center">
-            <ng-container *ngFor="let slide of slides.slice(5, 10); let i = index">
-              <a [routerLink]="'/products/' + slide.id">
-                <div class="carousel-item-single" *ngIf="i >= 5 && i < 10">
-                  <div class="card mb-3">
-                    <img [src]="'http://localhost:8000/storage/' + slide.image" class="card-img-top" alt="Slide Image">
-                    <div class="card-body">
-                      <p class="card-text">Product ID: {{ slide.id }}</p>
-                      <p class="card-text">Title: {{ slide.title }}</p>
-                      <span class="top-film-order">{{ i + 1 }}</span>
-                    </div>
+  <div id="topTenCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false">
+    <div class="carousel-inner" style="text-align: center;">
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-center">
+          <ng-container *ngFor="let slide of slides.slice(0, 5); let i = index">
+            <a [routerLink]="'/products/' + slide.id">
+              <div class="carousel-item-single">
+                <div class="card mb-3">
+                  <img [src]="'http://localhost:8000/storage/' + slide.image" class="card-img-top" alt="Slide Image">
+                  <div class="card-body">
+                    <p class="card-text mt-2">Title: {{ slide.title }}</p>
+                    <span class="top-film-order">{{ i + 1 }}</span>
                   </div>
                 </div>
-              </a>
-            </ng-container>
-          </div>
+              </div>
+            </a>
+          </ng-container>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+          <ng-container *ngFor="let slide of slides.slice(5, 10); let i = index">
+            <a [routerLink]="'/products/' + slide.id">
+              <div class="carousel-item-single">
+                <div class="card mb-3">
+                  <img [src]="'http://localhost:8000/storage/' + slide.image" class="card-img-top" alt="Slide Image">
+                  <div class="card-body">
+                    <p class="card-text">Title: {{ slide.title }}</p>
+                    <span class="top-film-order">{{ i + 6 }}</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </ng-container>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
