@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Basket\BasketController;
 use App\Http\Controllers\Product\CategoriesController;
 use App\Http\Controllers\Product\ProductController as ProductController;
 use App\Http\Controllers\Product\ProductSizeColorController;
@@ -40,6 +41,14 @@ Route::group(["middleware" => ["api"]], function(){
     Route::post("category/update/{id}", [CategoriesController::class, "update"]);
     Route::get("category/detail/{id}", [CategoriesController::class, "getCategory"]);
 });
+Route::group(["middleware" => ["api"]], function(){
+
+    Route::get("basket/cart",[BasketController::class,"index"]);
+    Route::post("basket/cart/add",[BasketController::class,"store"]);
+    Route::post("basket/cart/update/{id}",[BasketController::class,"update"]);
+    Route::delete("basket/cart/delete/{id}",[BasketController::class,"destroy"]);
+
+});
 
 Route::group(["middleware" => ["api"]], function(){
 
@@ -62,6 +71,7 @@ Route::group(["middleware" => ["api"]], function(){
     Route::post("product/sizecolor/add", [ProductSizeColorController::class, "store"]);
     Route::delete("product/size/delete/{id}", [ProductSizeColorController::class, "destroy_size"]);
     Route::delete("product/color/delete/{id}", [ProductSizeColorController::class, "destroy"]);
+    Route::get("detail/{id}", [ProductController::class, "pdetail"]);
 
 
 });

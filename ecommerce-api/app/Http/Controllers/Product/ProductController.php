@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductDetailResource;
 use Illuminate\Http\Request;
 use App\Models\Product\Product;
 use App\Models\Product\Categories;
 use App\Models\Product\ProductColor;
-use App\Models\Product\ProductColorSize;
+
 use App\Models\Product\ProductSize;
 use App\Models\Product\ProductImages;
 use Illuminate\Support\Facades\Storage;
@@ -194,6 +195,19 @@ class ProductController extends Controller
         }
     
         return response()->json(['message' => 'Başarılı', 'products' => $products]);
+    }
+    public function pdetail(string $id)
+    {
+        $product = Product::findOrFail($id);
+        $products_a = Product::inRandomOrder()->limit(4)->get();
+
+        
+        return response()->json([
+            "product_a"=>$products_a->map(function($product){
+                return ProductDetailResource::make($product);
+            }),
+            "product" =>ProductDetailResource::make($product)
+        ]);
     }
    
 }
