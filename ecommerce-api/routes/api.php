@@ -3,9 +3,11 @@
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Basket\BasketController;
 use App\Http\Controllers\Product\CategoriesController;
+use App\Http\Controllers\AdressUserController;
 use App\Http\Controllers\Product\ProductController as ProductController;
 use App\Http\Controllers\Product\ProductSizeColorController;
 use App\Http\Controllers\Product\ProductImagesController;
+use App\Http\Controllers\SalesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +51,23 @@ Route::group(["middleware" => ["api"]], function(){
     Route::delete("basket/cart/delete/{id}",[BasketController::class,"destroy"]);
 
 });
+ 
+Route::group(["middleware" => ["api"]], function(){
+
+    Route::get("basket/user/address", [AdressUserController::class, "index"]);
+    Route::post("basket/user/address/add", [AdressUserController::class, "store"]);
+    Route::post("basket/user/address/update/{id}", [AdressUserController::class, "update"]);
+    Route::delete("basket/user/address/delete/{id}", [AdressUserController::class, "destroy"]);
+
+});
+Route::group(["middleware" => ["api"]], function(){
+
+    Route::post("basket/checkout", [SalesController::class, "store"]);
+    Route::get("basket/orders/all", [SalesController::class, "index"]);
+    Route::get("basket/toptensale/all", [SalesController::class, "topten"]);
+
+});
+
 
 Route::group(["middleware" => ["api"]], function(){
 
@@ -72,6 +91,7 @@ Route::group(["middleware" => ["api"]], function(){
     Route::delete("product/size/delete/{id}", [ProductSizeColorController::class, "destroy_size"]);
     Route::delete("product/color/delete/{id}", [ProductSizeColorController::class, "destroy"]);
     Route::get("detail/{id}", [ProductController::class, "pdetail"]);
+
 
 
 });
