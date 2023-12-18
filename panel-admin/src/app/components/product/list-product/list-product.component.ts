@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 import { URL_BACKEND } from 'src/config/config';
 import { ProductService } from '../_services/product.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-list-product',
@@ -15,7 +16,9 @@ export class ListProductComponent  {
     orginalproducts:any[] =[];
     searchText:any=null;
     userId:number|undefined;
-    URL=URL_BACKEND
+    URL=URL_BACKEND;
+    page: number = 1;
+    
     
   
     constructor(
@@ -34,6 +37,7 @@ export class ListProductComponent  {
       this.ProductService.getProduct(page, LINK).subscribe((resp:any)=>{
         console.log(resp);
         this.products = resp.products.data;
+        this.page = page;
       })
     }
     
@@ -41,13 +45,16 @@ export class ListProductComponent  {
    
     deleteProduct(id: number) {
       this.ProductService.deleteProduct(id).subscribe(response => {
-        // Silme işlemi başarılıysa, silinen ürünü yerel listeden çıkar
+       
         this.products = this.products.filter(product => product.id !== id);
       }, error => {
         console.error("Product Delete Failed", error);
       });
     }
-  
+    pageChanged(pageNumber: number): void {
+      this.page = pageNumber; 
+      this.allproduct(pageNumber); 
+    }
     reset() {
       this.searchText = null;
       this.allproduct();
