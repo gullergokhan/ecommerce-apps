@@ -174,7 +174,7 @@ public function getUsersCount(){
 
     $userdata = auth()->user();
 
-    if($userdata->is_admin == "1"){
+   
        
         $userCount = User::count();
         $ProductCount = Product::count();
@@ -185,7 +185,7 @@ public function getUsersCount(){
             'SaleCount'=>$SaleCount,
         
         ]);
-    }
+    
     
 }
 }

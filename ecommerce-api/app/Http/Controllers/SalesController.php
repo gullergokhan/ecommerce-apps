@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Sale\SaleCollection;
+use App\Http\Resources\SaleCollection;
 use App\Models\Cart\Carts;
 use App\Models\Sale\Sale;
 use App\Models\Sale\SaleAddress;

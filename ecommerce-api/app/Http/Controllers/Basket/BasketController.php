@@ -76,4 +76,9 @@ class BasketController extends Controller
         $carts->delete();
         return response()->json(["message" => 200]);
     }
+    public function getItemCount()
+    {
+        $itemCount = Carts::count();
+        return response()->json(["item_count" => $itemCount]);
+    }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Basket\BasketController;
 use App\Http\Controllers\Product\CategoriesController;
 use App\Http\Controllers\AdressUserController;
+use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Product\ProductController as ProductController;
 use App\Http\Controllers\Product\ProductSizeColorController;
 use App\Http\Controllers\Product\ProductImagesController;
@@ -65,6 +66,14 @@ Route::group(["middleware" => ["api"]], function(){
     Route::post("basket/checkout", [SalesController::class, "store"]);
     Route::get("basket/orders/all", [SalesController::class, "index"]);
     Route::get("basket/toptensale/all", [SalesController::class, "topten"]);
+    Route::get('/basket/items/count', [BasketController::class, 'getItemCount']);
+
+});
+Route::group(["middleware" => ["api"]], function(){
+
+    Route::get("users/latest", [Dashboard::class, "getLastUsers"]);
+    Route::get("users/count", [Dashboard::class, "getUsersCount"]);
+    
 
 });
 
