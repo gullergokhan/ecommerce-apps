@@ -67,7 +67,10 @@ export class AuthService {
     return false;
 
   }
-
+  isLoggedIn(): boolean {
+    
+    return !!this.token;
+  }
 
   register(data:any){
     let URL = URL_SERVICE+ '/register';

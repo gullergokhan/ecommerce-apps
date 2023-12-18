@@ -31,10 +31,14 @@ export class CustomerListComponent  {
     if(this.searchText){
       LINK = LINK+ "&search="+this.searchText;
     }
-    this.dashboardService.topfourall().subscribe((resp:any)=>{
+    this.dashboardService.topfourall().subscribe((resp: any) => {
       console.log(resp);
-      this.products = resp.products.data;
-    })
+      if (resp && resp.products && resp.products.data) {
+        this.products = resp.products.data;
+      } else {
+        // Handle the case when the expected properties are not available in the response
+      }
+    });
   }
 
 }

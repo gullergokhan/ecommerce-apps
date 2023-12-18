@@ -11,69 +11,37 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 
   getUsersCount():Observable<any>{
-    let URL = URL_SERVICE + '/admin/users/count';
+    let URL = URL_SERVICE + '/users/count';
 
-    const token = localStorage.getItem('token');
+   
 
-    if(!token)
-    {
-      return of(null);
-    }
-    const headers = new HttpHeaders({
-        'Authorization': `Bearer ${token}`,}
-    );
-
-    return this.http.get<any>(URL, {headers});
+    return this.http.get<any>(URL,);
       
   }
 
   getLastUsers():Observable<any>{
-    let URL = URL_SERVICE + '/admin/users/latest';
+    let URL = URL_SERVICE + '/users/latest';
 
-    const token = localStorage.getItem('token');
 
-    if(!token)
-    {
-      return of(null);
-    }
-    const headers = new HttpHeaders({
-        'Authorization': `Bearer ${token}`,}
-    );
 
-    return this.http.get<any>(URL, {headers});
+    return this.http.get<any>(URL, );
       
   }
 
   topfourall():Observable<any>{
     let URL = URL_SERVICE + '/topfour/all';
 
-    const token = localStorage.getItem('token');
+   
 
-    if(!token)
-    {
-      return of(null);
-    }
-    const headers = new HttpHeaders({
-        'Authorization': `Bearer ${token}`,}
-    );
-
-    return this.http.get<any>(URL, {headers});
+    return this.http.get<any>(URL, );
       
   }
   topfoursale():Observable<any>{
-    let URL = URL_SERVICE + '/topfoursale/all';
+    let URL = URL_SERVICE + '/basket/toptensale/all';
 
-    const token = localStorage.getItem('token');
+   
 
-    if(!token)
-    {
-      return of(null);
-    }
-    const headers = new HttpHeaders({
-        'Authorization': `Bearer ${token}`,}
-    );
-
-    return this.http.get<any>(URL, {headers});
+    return this.http.get<any>(URL);
       
   }
 }

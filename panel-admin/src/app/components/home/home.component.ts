@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.authService.user || !this.authService.token) {
-      this.router.navigate(['/auth/login']);
+      this.router.navigate(['/login']);
     } else {
       this.dashboardService.getUsersCount().subscribe(data => {
         if (data) {
