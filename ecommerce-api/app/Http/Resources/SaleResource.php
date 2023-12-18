@@ -26,8 +26,7 @@ class SaleResource extends JsonResource
             "items"=>$this->resource->sale_details->map(function($detail){
                 return[
                     "id"=>$detail->id,
-                    "title"=>$detail->product->title,
-                    "type_discount"=>$detail->type_discount,
+                    "title" => $detail->product->title ?? null,                    "type_discount"=>$detail->type_discount,
                     "discount"=>$detail->discount,
                     "quantity"=>$detail->quantity,
                     "product_size_id"=>$detail->product_size_id,
@@ -36,8 +35,8 @@ class SaleResource extends JsonResource
                         "name"=>$detail->product_size->name,
 
                     ]:NULL,
-                    "image"=>$detail->product->images,
-                    "imageEcommerce"=>env("APP_URL")."/storage/".$detail->product->images,
+                    "image" => optional($detail->product)->images ?? null,
+                    "imageEcommerce" => optional($detail->product)->images ? env("APP_URL")."/storage/".$detail->product->images : null,
 
                     "code_cupon"=>$detail->code_cupon,
                     "code_discount"=>$detail->code_discount,
