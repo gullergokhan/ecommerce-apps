@@ -3,11 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 import { ProductService } from '../_services/product.service';
 import { URL_BACKEND } from 'src/config/config';
+import { NavbarComponent } from '../../layouts/navbar/navbar.component';
 
 @Component({
   selector: 'app-update-product',
   standalone: true,
-  imports: [SharedModule],
+  imports: [SharedModule,NavbarComponent],
   templateUrl: './update-product.component.html',
   styleUrls: ['./update-product.component.scss']
 })

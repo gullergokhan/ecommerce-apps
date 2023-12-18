@@ -3,11 +3,12 @@ import { SharedModule } from 'src/app/common/shared/shared.module';
 import { URL_BACKEND } from 'src/config/config';
 import { ProductService } from '../_services/product.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NavbarComponent } from '../../layouts/navbar/navbar.component';
 
 @Component({
   selector: 'app-list-product',
   standalone: true,
-  imports: [SharedModule],
+  imports: [SharedModule,NavbarComponent],
   templateUrl: './list-product.component.html',
   styleUrls: ['./list-product.component.scss']
 })
