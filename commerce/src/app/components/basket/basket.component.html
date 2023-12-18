@@ -7,18 +7,21 @@
                         <th scope="col">Product</th>
                         <th scope="col" class="text-center">Quantity</th>
                         <th scope="col" class="text-center">Total</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let cart of listCarts">
                         <td>
                             <div class="d-flex align-items-center">
-                                <img [src]="URL +cart.product.images" class="w-25 me-3" alt="Product Image">
-                                
+                                <img src={{cart.product.images}} class="w-25 me-3" alt="Product Image">
                                 <div>
                                     <h5 class="mb-0">{{ cart.product.title }}</h5>
                                 </div>
                             </div>
+                        </td>
+                        <td class="text-center align-middle">
+                            <button type="button" class="btn btn-sm btn-outline-danger" (click)="deleteItem(cart)">Sepetten Kaldır</button>
                         </td>
                         <td class="text-center align-middle">
                             <div class="btn-group" role="group">

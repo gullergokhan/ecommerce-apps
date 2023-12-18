@@ -54,10 +54,6 @@ export class EcommerceService {
   createBasket(data:any):Observable<any>{
     let URL = URL_SERVICE + '/basket/cart/add';
 
-    
-
-
-
     return this.http.post<any>(URL, data);
       
   }

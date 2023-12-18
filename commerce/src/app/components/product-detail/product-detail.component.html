@@ -1,13 +1,15 @@
-<div class="container pt-4 pb-6">
+<div class="card h-100  ">
+
     <div class="row">
         <!-- Product Image -->
         <div class="col-lg-6">
             <div>
-                <img id="main-img" [src]="URL  + imageEcommerce" class="w-100" />
+                
+                <img id="main-img" src="{{imageEcommerce}}" class="w-100" />
             </div>
             <div class="row mt-4">
                 <div *ngFor="let image of images" class="col-2">
-                    <img [src]="URL  + image.images" class="single-img cursor-pointer border w-100" (click)="changeMainImage(image.images)" />
+                    <img src="{{image.images}}" class="single-img cursor-pointer border w-100" (click)="changeMainImage(image.images)" />
                 </div>
             </div>
         </div>

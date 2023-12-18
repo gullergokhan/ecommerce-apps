@@ -81,7 +81,8 @@ export class ProductDetailComponent {
         this.title = resp.product.title
         this.stock = resp.product.stock
         this.price_dsc = resp.product.price_dsc
-
+        console.log('Ana Resim:', resp.product.imageEcommerce);
+        console.log('Diğer Resimler:', resp.product.images);
       
        
         this.summary = resp.product.summary
@@ -132,7 +133,7 @@ export class ProductDetailComponent {
     };
 
 
-    console.log(data);
+    // console.log(data);
 
     this.ecommerce.createBasket(data).subscribe((resp:any)=>{
       console.log(resp);
@@ -147,7 +148,7 @@ export class ProductDetailComponent {
       }
     })
 
-    console.log(data);
+    // console.log(data);
 
   }
 

@@ -46,10 +46,8 @@ export class BasketComponent {
       if (resp && resp.carts && resp.carts.data) {
         this.listCarts = resp.carts.data;
   
-        // Her bir cart öğesine initialQuantity değerini atama
         this.listCarts.forEach((cart: any) => {
           cart.quantity = this.initialQuantity;
-          // Ayrıca, subtotal ve total değerlerini de başlangıçta hesaplayabilirsiniz:
           cart.subtotal = cart.unit_price * cart.quantity;
           cart.total = cart.discount * cart.quantity;
         });
@@ -100,32 +98,20 @@ export class BasketComponent {
     
   }
 
-  deleteItem(cart:any)
-  {
-   
-
-
-    this.ecommerceService.deleteBasket(cart.id).subscribe();
-
-    this.ecommerceService.basketlist().subscribe((resp:any)=>{
-
-      if(resp && resp.carts && resp.carts.data)
-      {
-        this.listCarts=resp.carts.data;
+  deleteItem(cart:any): void {
+    this.ecommerceService.deleteBasket(cart.id).subscribe(() => {
+        // Sepetten ürün başarıyla silindikten sonra listeyi güncelle
+        this.updateBasketList();
+    });
+}updateBasketList(): void {
+  this.ecommerceService.basketlist().subscribe((resp: any) => {
+      if (resp && resp.carts && resp.carts.data) {
+          this.listCarts = resp.carts.data;
+      } else {
+          console.log("Invalid", resp);
       }
-      else
-      {
-        console.log("Invalid", resp);
-      }
-
-      
-
-    })
-
-    
-
-
-  }
+  });
+}
  
 
 }

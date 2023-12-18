@@ -5,6 +5,7 @@ import { EcommerceService } from 'src/app/common/services/ecommerce.servis';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 import { ProductsComponent } from '../products/products.component';
 import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -23,7 +24,8 @@ export class ProductListComponent  {
     
   
     constructor(
-      public ProductService : EcommerceService
+      public ProductService : EcommerceService,
+      private router: Router
     ){}
   
     ngOnInit():void{
@@ -41,7 +43,10 @@ export class ProductListComponent  {
       })
     }
     
-     
+    goToProductDetail(productId: number) {
+      this.router.navigate(['/product', productId]); 
+  
+    }
    
    
     reset() {

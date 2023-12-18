@@ -14,12 +14,13 @@
 <div class="container category-list-container">
     <div class="row">
         <div *ngFor="let product of productsByCategory" class="product-item">
-            
+          <a [routerLink]="['/products', product.id]">
+
             <img [src]="'http://localhost:8000/storage/' + product.images" alt="Product Image">
 
             <p>ID: {{ product.id }}</p>
             <p>Title: {{ product.title }}</p>
-           
+           </a>
           </div>
     </div>
   </div>
