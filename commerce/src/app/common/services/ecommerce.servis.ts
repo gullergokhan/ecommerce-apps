@@ -32,7 +32,7 @@ export class EcommerceService {
         let URL = URL_SERVICE + '/product/by-category/' + categoryId;
         return this.http.get<any>(URL);
       }
-    productdetail(id:number):Observable<any>{
+    getproductdetail(id:number):Observable<any>{
     let URL = URL_SERVICE + '/detail/'+id;
 
    
@@ -40,4 +40,85 @@ export class EcommerceService {
     return this.http.get<any>(URL,);
       
   }
+  basketlist():Observable<any>{
+    let URL = URL_SERVICE + '/basket/cart';
+
+    const token = localStorage.getItem('token');
+
+   
+
+    return this.http.get<any>(URL, );
+      
   }
+
+  createBasket(data:any):Observable<any>{
+    let URL = URL_SERVICE + '/basket/cart/add';
+
+    
+
+
+
+    return this.http.post<any>(URL, data);
+      
+  }
+  deleteBasket(id:number):Observable<any>{
+    let URL = URL_SERVICE + '/basket/cart/delete/'+id;
+
+
+    return this.http.delete<any>(URL,);
+      
+  }
+  updateBasket(id:number, data:any):Observable<any>{
+    let URL = URL_SERVICE + '/basket/cart/update/'+id;
+  
+    return this.http.post<any>(URL, data, );
+      
+  }
+  clientaddress():Observable<any>{
+    let URL = URL_SERVICE + '/basket/user/address';
+      
+    return this.http.get<any>(URL, );
+      
+  }
+  
+  createAddress(data:any):Observable<any>{
+    let URL = URL_SERVICE + '/basket/user/address/add';
+  
+    return this.http.post<any>(URL, data, );
+      
+  }
+  
+  updateAddress(id:number, data:any):Observable<any>{
+    let URL = URL_SERVICE + '/basket/user/address/update/'+id;
+  
+  
+    return this.http.post<any>(URL, data, );
+      
+  }
+  
+  deleteAddress(id:number):Observable<any>{
+    let URL = URL_SERVICE + '/basket/user/address/delete/'+id;
+  
+   
+  
+  
+    return this.http.delete<any>(URL,);
+      
+  }
+  checkout(data:any):Observable<any>{
+    let URL = URL_SERVICE + '/basket/checkout';
+
+
+    return this.http.post<any>(URL, data,);
+      
+  }
+  getCartItemCount(): Observable<number> {
+    let URL = URL_SERVICE + '/basket/items/count'; 
+  
+    return this.http.get<number>(URL);
+  }
+  
+}
+  
+
+  

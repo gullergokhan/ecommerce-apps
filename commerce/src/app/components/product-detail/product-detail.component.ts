@@ -115,17 +115,21 @@ export class ProductDetailComponent {
   {
     
 
-    let data= {
-      
-      product_id:this.id,
-      type_discount:this.type_discount,
-      discount:this.price_dsc,
-      quantity:this.quantity,
-      unit_price:this.unit_price,
-      subtotal:this.unit_price*this.quantity,
-      total:this.price_usd*this.quantity,
- 
+    let total = 0;
+
+    if (this.price_usd && this.quantity) {
+      total = this.price_usd * this.quantity;
     }
+    
+    let data= {
+      product_id: this.id,
+      type_discount: this.type_discount,
+      discount: this.price_dsc,
+      quantity: this.quantity,
+      unit_price: this.unit_price,
+      subtotal: this.unit_price * this.quantity,
+      total: total,
+    };
 
 
     console.log(data);

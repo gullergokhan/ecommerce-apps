@@ -69,19 +69,19 @@ export class CheckoutComponent   {
     })
   }
 
-  calculeteTotal():number{
-    return this.listCarts.reduce((sum:number, item:any)=> sum +item.total,0 )
+  calculeteTotal(): number {
+    return this.listCarts.reduce((sum: number, item: any) => sum + (item.discount || 0), 0);
   }
-
-  calculeteSubTotal():number{
-    return this.listCarts.reduce((sum:number, item:any)=> sum +item.subtotal,0 )
+  
+  calculeteSubTotal(): number {
+    return this.listCarts.reduce((sum: number, item: any) => sum + (item.discount || 0), 0);
   }
 
   calculateTotalPrice():void
   {
     this.Subtotal = this.calculeteSubTotal();
     this.TotalPrice = this.calculeteTotal();
-  }
+    }
 
   selectAddress(address:any)
   {
@@ -298,6 +298,7 @@ export class CheckoutComponent   {
       }, 5000);
 
     })
+    this.router.navigate(['/order-completed']);
 
 
   }

@@ -18,6 +18,7 @@ export class BasketComponent {
   Subtotal:any = 0;
   TotalPrice:any=0;
   URL=URL_BACKEND;
+  initialQuantity = 1;
 
   constructor(
 
@@ -38,27 +39,27 @@ export class BasketComponent {
     this.Subtotal = this.calculeteSubTotal();
     this.TotalPrice = this.calculeteTotal();
   }
-
-  ngOnInit():void{
-
-    
-
-    this.ecommerceService.basketlist().subscribe((resp:any)=>{
+  ngOnInit(): void {
+    this.ecommerceService.basketlist().subscribe((resp: any) => {
       console.log(resp);
-
-      if(resp && resp.carts && resp.carts.data)
-      {
-        this.listCarts=resp.carts.data;
+  
+      if (resp && resp.carts && resp.carts.data) {
+        this.listCarts = resp.carts.data;
+  
+        // Her bir cart öğesine initialQuantity değerini atama
+        this.listCarts.forEach((cart: any) => {
+          cart.quantity = this.initialQuantity;
+          // Ayrıca, subtotal ve total değerlerini de başlangıçta hesaplayabilirsiniz:
+          cart.subtotal = cart.unit_price * cart.quantity;
+          cart.total = cart.discount * cart.quantity;
+        });
+  
         this.calculateTotalPrice();
-      }
-      else
-      {
+      } else {
         console.log("Invalid", resp);
       }
-
-    })
+    });
   }
-
   decrement(cart:any):void
   {
    

@@ -1,10 +1,10 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { RouterModule, provideRouter } from '@angular/router';
 
-import { routes } from './app.routes';
 import { CommonModule } from '@angular/common';
 import { provideHttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 export const appConfig : ApplicationConfig ={
   providers: [
@@ -25,13 +25,28 @@ export const appConfig : ApplicationConfig ={
               },
             
              
-            //   { path: "products/:productId",
-            //       component: ProductDetailsComponent },
+               { path: "products/:id",
+                   component: ProductDetailComponent },
               {
                   path: "products",
                   loadComponent: () => import("./components/product-list/product-list.component")
                       .then(c => c.ProductListComponent)
               },
+              {
+                path: "baskets",
+                loadComponent: () => import("./components/basket/basket.component")
+                    .then(c => c.BasketComponent)
+            },
+            {
+              path: "checkouts",
+              loadComponent: () => import("./components/checkout/checkout.component")
+                  .then(c => c.CheckoutComponent)
+          },
+          {
+            path: "order-completed",
+            loadComponent: () => import("./components/order-completed/order-completed.component")
+                .then(c => c.OrderCompletedComponent)
+        },
             
               
           ]
