@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../Auth/services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { SharedModule } from 'src/app/common/shared/shared.module';
-import { CustomerListComponent } from './customer-list/customer-list.component';
-import { TableListComponent } from './table-list/table-list.component';
-import { DashboardWidgetComponent } from './dashboard-widget/dashboard-widget.component';
-import { DashboardService } from './__services/dashboard.service';
+import { CustomerListComponent } from '../../components/home/customer-list/customer-list.component';
+import { TableListComponent } from '../../components/home/table-list/table-list.component';
+import { DashboardWidgetComponent } from '../../components/home/dashboard-widget/dashboard-widget.component';
+import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
   selector: 'app-home',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/common/shared/shared.module';
-import { ProductService } from '../_services/product.service';
-import { EccomerceService } from 'src/app/common/services/ecommerce.service';
+import { ProductService } from '../../../services/product.service';
+import { EccomerceService } from 'src/app/services/ecommerce.service';
 
 @Component({
   selector: 'app-add-product',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SharedModule } from 'src/app/common/shared/shared.module';
-import { ProductService } from '../_services/product.service';
+import { ProductService } from '../../../services/product.service';
 import { URL_BACKEND } from 'src/config/config';
 import { NavbarComponent } from '../../layouts/navbar/navbar.component';
 

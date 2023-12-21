@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { URL_BACKEND } from 'src/config/config';
-import { DashboardService } from '../__services/dashboard.service';
+import { DashboardService } from '../../../services/dashboard.service';
 
 @Component({
   selector: 'app-table-list',

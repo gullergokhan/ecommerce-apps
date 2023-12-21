@@ -1,4 +1,4 @@
-import { AuthService } from '../../Auth/services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedModule } from 'src/app/common/shared/shared.module';

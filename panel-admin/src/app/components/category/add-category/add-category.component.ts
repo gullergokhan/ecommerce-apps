@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EccomerceService } from 'src/app/common/services/ecommerce.service';
+import { EccomerceService } from 'src/app/services/ecommerce.service';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 
 @Component({

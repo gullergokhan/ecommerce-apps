@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/common/shared/shared.module';
-import { ListProductComponent } from './list-product/list-product.component';
-import { NavbarComponent } from '../layouts/navbar/navbar.component';
+import { ListProductComponent } from '../../components/product/list-product/list-product.component';
+import { NavbarComponent } from '../../components/layouts/navbar/navbar.component';
 
 @Component({
   selector: 'app-product',

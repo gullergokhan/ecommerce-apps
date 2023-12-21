@@ -11,12 +11,12 @@ export const appConfig : ApplicationConfig ={
       importProvidersFrom(CommonModule,HttpClient, RouterModule.forRoot([
           {
               path: "login",
-              loadComponent: () => import("./components/Auth/components/login/login.component")
+              loadComponent: () => import("./pages/login/login.component")
                   .then(c => c.LoginComponent)
           },
           {
               path: "register",
-              loadComponent: () => import("./components/Auth/components/register/register.component")
+              loadComponent: () => import("./pages/register/register.component")
                   .then(c => c.RegisterComponent)
           },
           {
@@ -36,7 +36,7 @@ export const appConfig : ApplicationConfig ={
           },
           {
               path: "product",
-              loadComponent: () => import("./components/product/product.component")
+              loadComponent: () => import("./pages/product/product.component")
                   .then(c => c.ProductComponent)
           },
           {
@@ -57,7 +57,7 @@ export const appConfig : ApplicationConfig ={
               children: [
                   {
                       path: "",
-                      loadComponent: () => import("./components/home/home.component")
+                      loadComponent: () => import("./pages/home/home.component")
                           .then(c => c.HomeComponent)
                   },
                 

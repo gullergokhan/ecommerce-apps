@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EccomerceService } from 'src/app/common/services/ecommerce.service';
+import { EccomerceService } from 'src/app/services/ecommerce.service';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 import { URL_BACKEND } from 'src/config/config';
 
