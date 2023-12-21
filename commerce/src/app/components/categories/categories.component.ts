@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
-import { EcommerceService } from 'src/app/common/services/ecommerce.servis';
+import { EcommerceService } from 'src/app/services/ecommerce.servis';
 
 @Component({
   selector: 'app-categories',

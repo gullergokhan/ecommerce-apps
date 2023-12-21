@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { EcommerceService } from 'src/app/common/services/ecommerce.servis';
+import { EcommerceService } from 'src/app/services/ecommerce.servis';
 
 @Component({
   selector: 'app-navbar',

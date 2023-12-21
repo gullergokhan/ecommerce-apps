@@ -20,7 +20,7 @@ export const appConfig : ApplicationConfig ={
           children: [
               {
                   path: "",
-                  loadComponent: () => import("./components/home/home.component")
+                  loadComponent: () => import("../pages/home/home.component")
                       .then(c => c.HomeComponent)
               },
             
@@ -44,7 +44,7 @@ export const appConfig : ApplicationConfig ={
           },
           {
             path: "order-completed",
-            loadComponent: () => import("./components/order-completed/order-completed.component")
+            loadComponent: () => import("../pages/order-completed/order-completed.component")
                 .then(c => c.OrderCompletedComponent)
         },
             

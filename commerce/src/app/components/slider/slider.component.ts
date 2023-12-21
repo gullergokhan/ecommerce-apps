@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EcommerceService } from 'src/app/common/services/ecommerce.servis';
+import { EcommerceService } from 'src/app/services/ecommerce.servis';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 
 @Component({

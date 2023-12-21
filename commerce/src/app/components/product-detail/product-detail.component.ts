@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 import { ProductsComponent } from '../products/products.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EcommerceService } from 'src/app/common/services/ecommerce.servis';
+import { EcommerceService } from 'src/app/services/ecommerce.servis';
 import { URL_BACKEND } from 'src/config/config';
 
 @Component({

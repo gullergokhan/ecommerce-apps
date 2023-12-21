@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { URL_BACKEND } from 'src/config/config';
-import { EcommerceService } from 'src/app/common/services/ecommerce.servis';
+import { EcommerceService } from 'src/app/services/ecommerce.servis';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 import { ProductsComponent } from '../products/products.component';
 import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';

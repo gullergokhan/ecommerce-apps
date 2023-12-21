@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/common/shared/shared.module';
-import { SliderComponent } from '../slider/slider.component';
-import { CategoriesComponent } from '../categories/categories.component';
-import { ProductsComponent } from '../products/products.component';
+import { SliderComponent } from '../../app/components/slider/slider.component';
+import { CategoriesComponent } from '../../app/components/categories/categories.component';
+import { ProductsComponent } from '../../app/components/products/products.component';
 
 @Component({
   selector: 'app-home',

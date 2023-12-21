@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     NavbarComponent,
     FooterComponent,
-    
     RouterModule
   ],
   templateUrl: './layouts.component.html',
